@@ -64,7 +64,6 @@ class ViewController: UIViewController {
         recognizer.addModel(PathModel(directions: [0,3,0], datas:"Z"))
         
         
-        
         self.recognizer = recognizer
         
         super.viewDidLoad()
