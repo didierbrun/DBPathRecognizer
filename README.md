@@ -58,10 +58,30 @@ if gesture != nil {
 }
 ```
 
-Note that you can specify a max cost to recognize the gesture :
+Note that you can specify a max cost to recognize the gesture. It means that if a gesture has a score greater than costMax, it will be ignored. 
 
 ```
 let recognizer = DBPathRecognizer(sliceCount: 8, deltaMove: 16.0, costMax: 40)
 ```
+
+While adding a model, you can specify a custom filter. The filter callback method, if specified, will let you a last chance to modify / analyze the datas to determine a new score.
+
+For example, the letter D & P have a similar draw-direction-path, however you can discriminate each one by detecting the position of the last point (up -> it's a P, down -> it's a D). The PathInfos struct transmited to the filter function will help you to determine the new score.
+
+Your custom filter function signature should conform to this signature : ((score:Int, infos:PathInfos) -> newScore:Int) :
+
+```
+recognizer.addModel(PathModel(directions: [2,6,7,0,1,2,3,4], datas:"P", filter:{
+            (cost:Int, infos:PathInfos) -> Int in
+                // Determine new cost
+                return cost
+        }));
+```
+
+
+
+
+
+
 
 
