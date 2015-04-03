@@ -13,7 +13,7 @@
 		15C0164F1AB5CBBD003101B1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15C0164E1AB5CBBD003101B1 /* Images.xcassets */; };
 		15C016521AB5CBBD003101B1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15C016501AB5CBBD003101B1 /* LaunchScreen.xib */; };
 		15C0165E1AB5CBBD003101B1 /* PathRecognizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C0165D1AB5CBBD003101B1 /* PathRecognizerTests.swift */; };
-		15C016681AB5CBFE003101B1 /* PathRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C016671AB5CBFE003101B1 /* PathRecognizer.swift */; };
+		15C016681AB5CBFE003101B1 /* DBPathRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C016671AB5CBFE003101B1 /* DBPathRecognizer.swift */; };
 		15C0166A1AB5CEEA003101B1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C016691AB5CEEA003101B1 /* CoreGraphics.framework */; };
 		15C0166D1AB5DD65003101B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C0166C1AB5DD65003101B1 /* UIKit.framework */; };
 		15C0166F1AB6456D003101B1 /* RenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C0166E1AB6456D003101B1 /* RenderView.swift */; };
@@ -40,7 +40,7 @@
 		15C016571AB5CBBD003101B1 /* PathRecognizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PathRecognizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15C0165C1AB5CBBD003101B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15C0165D1AB5CBBD003101B1 /* PathRecognizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathRecognizerTests.swift; sourceTree = "<group>"; };
-		15C016671AB5CBFE003101B1 /* PathRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathRecognizer.swift; sourceTree = "<group>"; };
+		15C016671AB5CBFE003101B1 /* DBPathRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBPathRecognizer.swift; sourceTree = "<group>"; };
 		15C016691AB5CEEA003101B1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		15C0166C1AB5DD65003101B1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		15C0166E1AB6456D003101B1 /* RenderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderView.swift; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 			children = (
 				15C016471AB5CBBD003101B1 /* AppDelegate.swift */,
 				15C016491AB5CBBD003101B1 /* ViewController.swift */,
-				15C016671AB5CBFE003101B1 /* PathRecognizer.swift */,
+				15C016671AB5CBFE003101B1 /* DBPathRecognizer.swift */,
 				15C0166E1AB6456D003101B1 /* RenderView.swift */,
 				15C0164B1AB5CBBD003101B1 /* Main.storyboard */,
 				15C0164E1AB5CBBD003101B1 /* Images.xcassets */,
@@ -237,7 +237,7 @@
 				15C0164A1AB5CBBD003101B1 /* ViewController.swift in Sources */,
 				15C016481AB5CBBD003101B1 /* AppDelegate.swift in Sources */,
 				15C0166F1AB6456D003101B1 /* RenderView.swift in Sources */,
-				15C016681AB5CBFE003101B1 /* PathRecognizer.swift in Sources */,
+				15C016681AB5CBFE003101B1 /* DBPathRecognizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +433,7 @@
 				15C016631AB5CBBD003101B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		15C016641AB5CBBD003101B1 /* Build configuration list for PBXNativeTarget "PathRecognizerTests" */ = {
 			isa = XCConfigurationList;
@@ -441,6 +442,7 @@
 				15C016661AB5CBBD003101B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

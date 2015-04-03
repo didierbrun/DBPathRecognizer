@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     var rawPoints:[Int] = []
-    var recognizer:PathRecognizer?
+    var recognizer:DBPathRecognizer?
 
     @IBOutlet weak var renderView: RenderView!
     @IBOutlet weak var letter: UILabel!
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         
-        let recognizer = PathRecognizer(sliceCount: 8, deltaMove: 16.0)
+        let recognizer = DBPathRecognizer(sliceCount: 8, deltaMove: 16.0)
         
         let maxy3 = ViewController.customFilter(self)(.Maximum, .LastPointY, 0.3)
         let miny3 = ViewController.customFilter(self)(.Minimum, .LastPointY, 0.3)
