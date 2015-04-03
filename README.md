@@ -18,13 +18,15 @@ Start by creating a new DBPathRecognizer instance
 let recognizer = DBPathRecognizer(sliceCount: 8, deltaMove: 16.0)
 ```
 
-Add some path model to the recognizer.
-Each path is defined by a direction-sequence and an associated data object (AnyObject).
+- Add some path model to the recognizer.
+- Each path is defined by a direction-sequence and an associated data object (AnyObject).
 
 ```
 recognizer.addModel(PathModel(directions: [7, 1], datas:"A"))
 recognizer.addModel(PathModel(directions: [2,6,0,1,2,3,4,0,1,2,3,4], datas:"B"))
 recognizer.addModel(PathModel(directions: [4,3,2,1,0], datas:"C"))
+recognizer.addModel(PathModel(directions: [4,3,2,1,0,4,3,2,1,0], datas:"E"))
 ```
 
+For example, here the model to recognize the letter E :
 ![ScreenShot](https://raw.github.com/didierbrun/DBPathRecognizer/master/Assets/directions.png)
