@@ -79,6 +79,11 @@ recognizer.addModel(PathModel(directions: [2,6,7,0,1,2,3,4], datas:"P", filter:{
         }));
 ```
 
+##Free path
+
+In this sample project I've used the Graffiti alphabet for the didactic aspect. However, PathRecognizer is a generic algorithm, you can add any free path to control an interface / game :
+
+![ScreenShot](https://raw.github.com/didierbrun/DBPathRecognizer/master/Assets/other_moves.png)
 
 
 
