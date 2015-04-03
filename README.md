@@ -20,7 +20,6 @@ let recognizer = DBPathRecognizer(sliceCount: 8, deltaMove: 16.0)
 
 
 Add some path model to the recognizer.
-
 Each path is defined by a direction-sequence and an associated data object (AnyObject).
 
 ```
