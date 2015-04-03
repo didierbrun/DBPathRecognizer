@@ -29,6 +29,6 @@ recognizer.addModel(PathModel(directions: [4,3,2,1,0], datas:"C"))
 recognizer.addModel(PathModel(directions: [4,3,2,1,0,4,3,2,1,0], datas:"E"))
 ```
 
-For example, here the model to recognize the letter E :
+For example, here the model for the letter E :
 
 ![ScreenShot](https://raw.github.com/didierbrun/DBPathRecognizer/master/Assets/directions.png)
