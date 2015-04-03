@@ -9,7 +9,7 @@ DBPathRecognizer
 
 Simply add the file DBPathRecognizer.swift to your project
 
-##Usage
+##Basic usage
 
 Start by creating a new DBPathRecognizer instance
 
@@ -18,6 +18,11 @@ Start by creating a new DBPathRecognizer instance
 let recognizer = DBPathRecognizer(sliceCount: 8, deltaMove: 16.0)
 ```
 
+Note that you can specify a max cost to recognize the gestures. It means that if a gesture has a score greater than costMax, it will be ignored. 
+
+```
+let recognizer = DBPathRecognizer(sliceCount: 8, deltaMove: 16.0, costMax: 40)
+```
 
 Add some path model to the recognizer.
 Each path is defined by a direction-sequence and an associated data object (AnyObject).
@@ -58,11 +63,7 @@ if gesture != nil {
 }
 ```
 
-Note that you can specify a max cost to recognize the gestures. It means that if a gesture has a score greater than costMax, it will be ignored. 
-
-```
-let recognizer = DBPathRecognizer(sliceCount: 8, deltaMove: 16.0, costMax: 40)
-```
+##Custom filter
 
 While adding a model, you can specify a custom filter. The filter callback method, if specified, will let you a last chance to modify / analyze the datas to determine a new score.
 
