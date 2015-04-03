@@ -69,7 +69,7 @@ While adding a model, you can specify a custom filter. The filter callback metho
 
 For example, the letter D & P have a similar draw-direction-path, however you can discriminate each one by detecting the position of the last point (up -> it's a P, down -> it's a D). The PathInfos struct transmited to the filter function will help you to determine the new score.
 
-Your custom filter function signature should conform to this signature : ((score:Int, infos:PathInfos) -> newScore:Int) :
+Your custom filter function should conform to this signature : ((score:Int, infos:PathInfos) -> newScore:Int) :
 
 ```
 recognizer.addModel(PathModel(directions: [2,6,7,0,1,2,3,4], datas:"P", filter:{
