@@ -58,7 +58,7 @@ if gesture != nil {
 }
 ```
 
-Note that you can specify a max cost to recognize the gesture. It means that if a gesture has a score greater than costMax, it will be ignored. 
+Note that you can specify a max cost to recognize the gestures. It means that if a gesture has a score greater than costMax, it will be ignored. 
 
 ```
 let recognizer = DBPathRecognizer(sliceCount: 8, deltaMove: 16.0, costMax: 40)
