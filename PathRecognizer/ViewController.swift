@@ -106,24 +106,24 @@ class ViewController: UIViewController {
     
     
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         rawPoints = []
-        let touch = touches.allObjects[0] as UITouch
-        let location = touch.locationInView(view)
+        let touch = touches.first as? UITouch
+        let location = touch!.locationInView(view)
         rawPoints.append(Int(location.x))
         rawPoints.append(Int(location.y))
     }
     
-    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
-        let touch = touches.allObjects[0] as UITouch
-        let location = touch.locationInView(view)
+    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+        let touch = touches.first as? UITouch
+        let location = touch!.locationInView(view)
         rawPoints.append(Int(location.x))
         rawPoints.append(Int(location.y))
         
         self.renderView.pointsToDraw = rawPoints
     }
     
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
         
         
         var path:Path = Path()

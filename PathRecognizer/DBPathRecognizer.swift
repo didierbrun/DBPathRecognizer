@@ -217,6 +217,15 @@ public func ==(lhs: PathPoint, rhs: PathPoint) -> Bool {
     return lhs.x == rhs.x && lhs.y == rhs.y
 }
 
+/* Rect */
+public struct Rect {
+    
+    var top:Int16;
+    var left:Int16;
+    var bottom:Int16;
+    var right:Int16;
+}
+
 /* Path */
 
 public struct Path {
