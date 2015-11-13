@@ -74,12 +74,12 @@ class ViewController: UIViewController {
 
     
     func minLastY(cost:Int, infos:PathInfos, minValue:Double)->Int {
-        var py:Double = (Double(infos.deltaPoints.last!.y) - Double(infos.boundingBox.top)) / Double(infos.height)
+        let py:Double = (Double(infos.deltaPoints.last!.y) - Double(infos.boundingBox.top)) / Double(infos.height)
         return py < minValue ? Int.max : cost
     }
     
     func maxLastY(cost:Int, infos:PathInfos, maxValue:Double)->Int {
-        var py:Double = (Double(infos.deltaPoints.last!.y) - Double(infos.boundingBox.top)) / Double(infos.height)
+        let py:Double = (Double(infos.deltaPoints.last!.y) - Double(infos.boundingBox.top)) / Double(infos.height)
         return py > maxValue ? Int.max : cost
     }
     
@@ -106,16 +106,16 @@ class ViewController: UIViewController {
     
     
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         rawPoints = []
-        let touch = touches.first as? UITouch
+        let touch = touches.first
         let location = touch!.locationInView(view)
         rawPoints.append(Int(location.x))
         rawPoints.append(Int(location.y))
     }
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
-        let touch = touches.first as? UITouch
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let touch = touches.first
         let location = touch!.locationInView(view)
         rawPoints.append(Int(location.x))
         rawPoints.append(Int(location.y))
@@ -123,13 +123,13 @@ class ViewController: UIViewController {
         self.renderView.pointsToDraw = rawPoints
     }
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         
         var path:Path = Path()
         path.addPointFromRaw(rawPoints)
         
-        var gesture:PathModel? = self.recognizer!.recognizePath(path)
+        let gesture:PathModel? = self.recognizer!.recognizePath(path)
         
         if gesture != nil {
             letter.text = gesture!.datas as? String

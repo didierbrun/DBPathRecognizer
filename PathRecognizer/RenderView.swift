@@ -18,7 +18,7 @@ class RenderView:UIView {
     }
     
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
         self.backgroundColor = UIColor.clearColor()
     }
     
@@ -26,7 +26,7 @@ class RenderView:UIView {
     override func drawRect(rect: CGRect) {
         
    
-        var context = UIGraphicsGetCurrentContext();
+        let context = UIGraphicsGetCurrentContext();
         CGContextClearRect(context, self.bounds);
         CGContextSetLineWidth(context, 10.0);
         UIColor.redColor().set()
