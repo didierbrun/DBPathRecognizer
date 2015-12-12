@@ -75,7 +75,7 @@ public class DBPathRecognizer {
         var current = points.first!
         var result: [PathPoint] = [current]
         
-        for (index, point) in enumerate(points) {
+        for (_, point) in points.enumerate() {
             
             let distance = current.squareDistanceFromPoint(point)
             
@@ -103,7 +103,7 @@ public class DBPathRecognizer {
         var result: [Int] = []
         let sliceAngle:Double = M_PI * 2.0 / Double(sliceCount)
         
-        for (index, point) in enumerate(dpoints) {
+        for (index, _) in dpoints.enumerate() {
             if index < dpoints.count - 1 {
                 
                 var angle:Double = dpoints[index].angleWithPoint(dpoints[index + 1])
@@ -258,7 +258,7 @@ public struct Path {
     
     mutating public func addPointFromRaw(var rawDatas:[Int]){
         var i = 0;
-        var pt:PathPoint
+        var _:PathPoint
         
         while i < rawDatas.count {
             let px = rawDatas[i]
