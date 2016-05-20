@@ -13,21 +13,21 @@ Simply add the file DBPathRecognizer.swift to your project
 
 Start by creating a new DBPathRecognizer instance
 
-```
+```swift
 // Create the path 8-directions path recognizer with a delta move sensibility of 16 pt
 let recognizer = DBPathRecognizer(sliceCount: 8, deltaMove: 16.0)
 ```
 
 Note that you can specify a max cost to recognize the gestures. It means that if a gesture has a score greater than costMax, it will be ignored. 
 
-```
+```swift
 let recognizer = DBPathRecognizer(sliceCount: 8, deltaMove: 16.0, costMax: 40)
 ```
 
 Add some path model to the recognizer.
 Each path is defined by a direction-sequence and an associated data object (AnyObject).
 
-```
+```swift
 recognizer.addModel(PathModel(directions: [7, 1], datas:"A"))
 recognizer.addModel(PathModel(directions: [2,6,0,1,2,3,4,0,1,2,3,4], datas:"B"))
 recognizer.addModel(PathModel(directions: [4,3,2,1,0], datas:"C"))
@@ -40,7 +40,7 @@ For example, here the model for the letter E :
 
 Record a touch move sequence into the dedicated Path structure :
 
-```
+```swift
 // Create the path
 var path:Path = Path()
 
@@ -53,7 +53,7 @@ path.addPointFromRaw(rawPoints)
 
 Finally, tell the recognizer to find the best model :
 
-```
+```swift
 var gesture:PathModel? = self.recognizer!.recognizePath(path)
         
 if gesture != nil {
@@ -71,7 +71,7 @@ For example, the letter D & P have a similar draw-direction-path, however you ca
 
 Your custom filter function should conform to this signature : ((score:Int, infos:PathInfos) -> newScore:Int) :
 
-```
+```swift
 recognizer.addModel(PathModel(directions: [2,6,7,0,1,2,3,4], datas:"P", filter:{
             (cost:Int, infos:PathInfos) -> Int in
                 // Determine new cost
