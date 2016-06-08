@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Didier Brun. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class RenderView:UIView {
@@ -22,15 +21,11 @@ class RenderView:UIView {
         self.backgroundColor = UIColor.clearColor()
     }
     
-    
     override func drawRect(rect: CGRect) {
-        
-   
         let context = UIGraphicsGetCurrentContext();
         CGContextClearRect(context, self.bounds);
         CGContextSetLineWidth(context, 10.0);
         UIColor.redColor().set()
-        
         
         if pointsToDraw.count > 4 {
             
