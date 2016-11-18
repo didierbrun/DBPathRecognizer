@@ -18,27 +18,27 @@ class RenderView:UIView {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = .clear
     }
     
-    override func drawRect(rect: CGRect) {
-        let context = UIGraphicsGetCurrentContext();
-        CGContextClearRect(context, self.bounds);
-        CGContextSetLineWidth(context, 10.0);
-        UIColor.redColor().set()
+    override func draw(_ rect: CGRect) {
+        let context = UIGraphicsGetCurrentContext()
+        context!.clear(self.bounds)
+        context!.setLineWidth(10.0)
+      
         
         if pointsToDraw.count > 4 {
             
-            CGContextMoveToPoint(context, CGFloat(pointsToDraw[0]), CGFloat(pointsToDraw[1]))
+            context?.move(to: CGPoint(x: CGFloat(pointsToDraw[0]), y: CGFloat(pointsToDraw[1])))
             
             for i in 2..<pointsToDraw.count {
                 if i % 2 == 0 {
-                    CGContextAddLineToPoint(context, CGFloat(pointsToDraw[i]), CGFloat(pointsToDraw[i + 1]))
+                    context?.addLine(to: CGPoint(x: CGFloat(pointsToDraw[i]), y: CGFloat(pointsToDraw[i + 1])))
                 }
             }
         }
         
         // Draw
-        CGContextStrokePath(context);
+        context!.strokePath();
     }
 }
