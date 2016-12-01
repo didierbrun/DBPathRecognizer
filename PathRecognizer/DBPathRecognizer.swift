@@ -14,14 +14,14 @@ import Foundation
 //
 // -----------------------------------------------------------
 
-public class DBPathRecognizer {
+open class DBPathRecognizer {
     
     var deltaMove:Double
     var sliceCount:Int
     var costMax:Int
     var models:[PathModel] = []
     
-    private var path:Path?
+    fileprivate var path:Path?
     
     init (sliceCount:Int = 8, deltaMove:Double = 8.0, costMax:Int = 32){
         self.sliceCount = sliceCount
@@ -29,7 +29,7 @@ public class DBPathRecognizer {
         self.costMax = costMax
     }
     
-    public func recognizePath(path:Path) -> PathModel? {
+    open func recognizePath(_ path:Path) -> PathModel? {
         
         self.path = path
         
@@ -54,17 +54,18 @@ public class DBPathRecognizer {
                 bestCost = cost
                 bestModel = model
             }
+            
         }
         
         return bestModel
         
     }
     
-    public func addModel(model:PathModel) {
+    open func addModel(_ model:PathModel) {
         models.append(model)
     }
     
-    private func deltaPoints() -> [PathPoint] {
+    fileprivate func deltaPoints() -> [PathPoint] {
         
         let points = path!.points
         
@@ -75,7 +76,7 @@ public class DBPathRecognizer {
         var current = points.first!
         var result: [PathPoint] = [current]
         
-        for (_, point) in points.enumerate() {
+        for (_, point) in points.enumerated() {
             
             let distance = current.squareDistanceFromPoint(point)
             
@@ -92,7 +93,7 @@ public class DBPathRecognizer {
         return result
     }
     
-    private func directions() -> [Int] {
+    fileprivate func directions() -> [Int] {
         
         let dpoints = deltaPoints()
         
@@ -103,7 +104,7 @@ public class DBPathRecognizer {
         var result: [Int] = []
         let sliceAngle:Double = M_PI * 2.0 / Double(sliceCount)
         
-        for (index, _) in dpoints.enumerate() {
+        for (index, _) in dpoints.enumerated() {
             if index < dpoints.count - 1 {
                 
                 var angle:Double = dpoints[index].angleWithPoint(dpoints[index + 1])
@@ -125,7 +126,7 @@ public class DBPathRecognizer {
         return result
     }
     
-    private func directionCost(a:Int,_ b:Int)->Int {
+    fileprivate func directionCost(_ a:Int,_ b:Int)->Int {
         
         var dif = abs(a - b)
         
@@ -136,7 +137,7 @@ public class DBPathRecognizer {
         return dif;
     }
     
-    private func costLeven(a:[Int],_ b:[Int]) -> Int {
+    fileprivate func costLeven(_ a:[Int],_ b:[Int]) -> Int {
         
         var td = Array2D(cols: a.count + 1, rows: b.count + 1)
         var tw = Array2D(cols: a.count + 1, rows: b.count + 1)
@@ -199,14 +200,14 @@ public struct PathPoint : Equatable {
     var x:Int16 = 0
     var y:Int16 = 0
     
-    public func squareDistanceFromPoint(point:PathPoint) -> Double {
+    public func squareDistanceFromPoint(_ point:PathPoint) -> Double {
         let dfx:Double = Double(point.x) - Double(x)
         let dfy:Double = Double(point.y) - Double(y)
         let sqareDistance = dfx * dfx + dfy * dfy
         return sqareDistance
     }
     
-    public func angleWithPoint(point:PathPoint) -> Double {
+    public func angleWithPoint(_ point:PathPoint) -> Double {
         let dfx:Double = Double(point.x) - Double(x)
         let dfy:Double = Double(point.y) - Double(y)
         return atan2(dfy, dfx)
@@ -252,11 +253,12 @@ public struct Path {
         get { return points.count }
     }
     
-    mutating public func addPoint(point:PathPoint) {
+    mutating public func addPoint(_ point:PathPoint) {
         points.append(point)
     }
     
-    mutating public func addPointFromRaw(var rawDatas:[Int]){
+    mutating public func addPointFromRaw(_ rawDatas:[Int]){
+        var rawDatas = rawDatas
         var i = 0;
         var _:PathPoint
         
@@ -320,7 +322,7 @@ public struct Array2D {
     init(cols:Int, rows:Int) {
         self.cols = cols
         self.rows = rows
-        matrix = Array(count:cols * rows, repeatedValue:0)
+        matrix = Array(repeating: 0, count: cols * rows)
     }
     
     subscript(col:Int, row:Int) -> Int {

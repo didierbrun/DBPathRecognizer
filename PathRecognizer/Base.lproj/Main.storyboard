@@ -1,7 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -13,33 +18,46 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TkV-Jc-xcR" customClass="RenderView" customModule="PathRecognizer" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YPn-lI-N8i" customClass="RenderView" customModule="PathRecognizer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="598"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0t-06-qH7">
-                                        <rect key="frame" x="94" y="34" width="133" height="146"/>
-                                        <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="80"/>
-                                        <color key="textColor" red="0.66715988005050497" green="0.66715988005050497" blue="0.66715988005050497" alpha="1" colorSpace="calibratedRGB"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="luf-iA-BS9">
+                                        <rect key="frame" x="113" y="35" width="148" height="102"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="102" id="HJY-7q-GkC"/>
+                                            <constraint firstAttribute="width" constant="148" id="Nmx-W5-K32"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="luf-iA-BS9" firstAttribute="top" secondItem="YPn-lI-N8i" secondAttribute="top" constant="35" id="7Is-sp-3ck"/>
+                                    <constraint firstItem="luf-iA-BS9" firstAttribute="centerX" secondItem="YPn-lI-N8i" secondAttribute="centerX" id="fN7-m6-dru"/>
+                                </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="YPn-lI-N8i" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="9Ln-5e-oqq"/>
+                            <constraint firstAttribute="trailing" secondItem="YPn-lI-N8i" secondAttribute="trailing" id="BIf-nU-92i"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YPn-lI-N8i" secondAttribute="bottom" constant="69" id="Cf5-OD-hue"/>
+                            <constraint firstItem="YPn-lI-N8i" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gip-oN-Hxz"/>
+                        </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="letter" destination="y0t-06-qH7" id="VJW-YG-w8J"/>
-                        <outlet property="renderView" destination="TkV-Jc-xcR" id="Q5b-Hn-rAb"/>
+                        <outlet property="letterLabel" destination="luf-iA-BS9" id="CW3-je-YdJ"/>
+                        <outlet property="renderView" destination="YPn-lI-N8i" id="43F-ei-gz8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="781" y="315"/>
+            <point key="canvasLocation" x="780" y="314.39280359820094"/>
         </scene>
     </scenes>
 </document>
