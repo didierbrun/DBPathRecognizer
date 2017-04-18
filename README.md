@@ -1,15 +1,15 @@
 DBPathRecognizer
 ================
 
-##Demo
+## Demo
 
 ![ScreenShot](https://raw.github.com/didierbrun/DBPathRecognizer/master/Assets/screencast.gif)
 
-##Installation
+## Installation
 
 Simply add the file DBPathRecognizer.swift to your project
 
-##Basic usage
+## Basic usage
 
 Start by creating a new DBPathRecognizer instance
 
@@ -63,7 +63,7 @@ if gesture != nil {
 }
 ```
 
-##Custom filter
+## Custom filter
 
 While adding a model, you can specify a custom filter. The filter callback method, if specified, will let you a last chance to modify / analyze the datas to determine a new score.
 
@@ -79,7 +79,7 @@ recognizer.addModel(PathModel(directions: [2,6,7,0,1,2,3,4], datas:"P", filter:{
         }));
 ```
 
-##Free path
+## Free path
 
 In this sample project I've used the Graffiti alphabet for the didactic aspect. However, PathRecognizer is a generic algorithm, you can add any free path to control an interface / game :
 
