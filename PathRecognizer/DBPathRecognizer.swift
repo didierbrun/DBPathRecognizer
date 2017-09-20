@@ -102,7 +102,7 @@ open class DBPathRecognizer {
         }
         
         var result: [Int] = []
-        let sliceAngle:Double = M_PI * 2.0 / Double(sliceCount)
+        let sliceAngle:Double = .pi * 2.0 / Double(sliceCount)
         
         for (index, _) in dpoints.enumerated() {
             if index < dpoints.count - 1 {
@@ -110,10 +110,10 @@ open class DBPathRecognizer {
                 var angle:Double = dpoints[index].angleWithPoint(dpoints[index + 1])
                 
                 if angle < 0 {
-                    angle = angle + M_PI * 2.0
+                    angle = angle + .pi * 2.0
                 }
                 
-                if (angle < sliceAngle / 2.0 || angle > M_PI * 2.0 - sliceAngle){
+                if (angle < sliceAngle / 2.0 || angle > .pi * 2.0 - sliceAngle){
                     result.append(0)
                 } else {
                     let rounded:Int = Int(round(angle / sliceAngle))
@@ -283,13 +283,13 @@ public struct PathInfos {
     let boundingBox:Rect
     let directions:[Int]
     
-    var width:Int {
+    var width:Int16 {
         get {
             return boundingBox.right - boundingBox.left
         }
     }
     
-    var height:Int {
+    var height:Int16 {
         get {
             return boundingBox.bottom - boundingBox.top
         }
