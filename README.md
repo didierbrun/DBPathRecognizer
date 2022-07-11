@@ -65,9 +65,9 @@ if gesture != nil {
 
 ## Custom filter
 
-While adding a model, you can specify a custom filter. The filter callback method, if specified, will let you a last chance to modify / analyze the datas to determine a new score.
+While adding a model, you can specify a custom filter. The filter callback method, if specified, will give you a last chance to modify / analyze the datas to determine a new score.
 
-For example, the letter D & P have a similar draw-direction-path, however you can discriminate each one by detecting the position of the last point (up -> it's a P, down -> it's a D). The PathInfos struct transmited to the filter function will help you to determine the new score.
+For example, the letter D & P have a similar draw-direction-path, however you can discriminate each one by detecting the position of the last point (up -> it's a P, down -> it's a D). The PathInfos struct transmitted to the filter function will help you to determine the new score.
 
 Your custom filter function should conform to this signature : ((score:Int, infos:PathInfos) -> newScore:Int) :
 
